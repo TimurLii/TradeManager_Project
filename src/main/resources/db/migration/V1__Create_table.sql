@@ -1,17 +1,5 @@
-drop schema if exists trade_manager cascade ;
-
-drop table if exists trade_manager.basket_products cascade;
-
-drop table if exists trade_manager.baskets cascade;
-
-drop table if exists trade_manager.clients cascade;
-
-drop table if exists trade_manager.managers cascade;
-
-drop table if exists trade_manager.products cascade;
 
 create schema trade_manager;
-
 
 create table trade_manager.basket_products
 (
@@ -52,19 +40,23 @@ create table trade_manager.products
 alter table if exists trade_manager.basket_products
     add constraint FKe4ijn3avfn0c6eqj6w7a2o2gd
         foreign key (product_id)
-            references trade_manager.products;
+            references trade_manager.products
+on delete cascade ;
 
 alter table if exists trade_manager.basket_products
     add constraint FK5e2sxbbeynl11h01xnopnkvol
         foreign key (basket_id)
-            references trade_manager.baskets;
+            references trade_manager.baskets
+            on delete cascade ;
 
 alter table if exists trade_manager.baskets
     add constraint FKkfm6v8tpljcg2t31hto7jtj7i
         foreign key (client_id)
-            references trade_manager.clients;
+            references trade_manager.clients
+            on delete cascade ;
 
 alter table if exists trade_manager.clients
     add constraint FKb04ux70c9nn0yi4y3pmitlfo9
         foreign key (manager_id)
-            references trade_manager.managers;
+            references trade_manager.managers
+            on delete cascade ;

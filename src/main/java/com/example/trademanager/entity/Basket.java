@@ -24,4 +24,6 @@ public class Basket {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id")
     private Client client;
+
+    //TODO добавить поле resultPrice, в котором будет отображаться итоговая стоимость товаров в корзине
 }

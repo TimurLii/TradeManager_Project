@@ -19,4 +19,8 @@ public class Client {
     @ManyToOne()
     @JoinColumn(name = "manager_id")
     private Manager manager;
+
+    @OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
+    private Basket basket;
+
 }
