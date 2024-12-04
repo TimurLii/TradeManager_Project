@@ -19,8 +19,8 @@ public class Product {
     @Column(name = "price")
     private int price;
 
-    @ManyToMany(mappedBy = "products")
-    private List<Basket> baskets;
+//    @ManyToMany(mappedBy = "products")
+//    private List<Basket> baskets;
 
     //TODO добавить поле count в котором будет отображаться количество товара соответственно не каждый сможет его взять
     // todo можно добавить поле maxCountForClient -> будет количество товара, который сможет взять один клиент

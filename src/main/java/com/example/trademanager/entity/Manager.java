@@ -17,7 +17,6 @@ public class Manager {
     @Column(name = "manager_name")
     private String managerName;
 
-
     @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY)
     private Set<Client> clients;
 }
