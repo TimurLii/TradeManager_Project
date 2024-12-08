@@ -3,6 +3,7 @@ package com.example.trademanager.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -16,12 +17,12 @@ public class Product {
     @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "price")
-    private int price;
+    @Column(name = "price", nullable = false)
+    private BigDecimal price;
 
-//    @ManyToMany(mappedBy = "products")
-//    private List<Basket> baskets;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProductStock> stocks; // Связь с запасами товара
 
-    //TODO добавить поле count в котором будет отображаться количество товара соответственно не каждый сможет его взять
-    // todo можно добавить поле maxCountForClient -> будет количество товара, который сможет взять один клиент
+    @ManyToMany(mappedBy = "products")
+    private List<Basket> baskets; // Связь с корзинами
 }

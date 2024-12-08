@@ -20,7 +20,7 @@ public class Client {
     @JoinColumn(name = "manager_id")
     private Manager manager;
 
-    @OneToOne(cascade = CascadeType.REMOVE) // Удаление корзины при удалении клиента
-    @JoinColumn(name = "basket_id") // Измените на basket_id, если вы используете его как внешний ключ
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "basket_id")
     private Basket basket;
 }
